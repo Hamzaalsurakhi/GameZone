@@ -43,7 +43,7 @@ namespace GameZone.Controllers
             }
           await  _gamesService.Create(model);
             return RedirectToAction(nameof(Index));
-        } 
+         } 
             
             
     }

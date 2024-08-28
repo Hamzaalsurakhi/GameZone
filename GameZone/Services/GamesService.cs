@@ -1,4 +1,5 @@
-﻿namespace GameZone.Services
+﻿
+namespace GameZone.Services
 {
     public class GamesService :IGamesService
     {
@@ -9,7 +10,7 @@
         {
             _context = dbContext;
             _WebHostEnvironment=webHostEnvironment;
-            _imagesPath=$"{_WebHostEnvironment.WebRootPath}/assets/images/Games";
+            _imagesPath=$"{_WebHostEnvironment.WebRootPath}{FileSettings.ImagesPath}";
         }
 
         public async Task Create(CreateGameFormVM model)
@@ -20,7 +21,7 @@
 
             using var stream=File.Create(path);
             await model.Cover.CopyToAsync(stream);
-            stream.Dispose();
+           
 
             Game game = new()
             {
